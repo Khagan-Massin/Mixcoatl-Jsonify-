@@ -2,16 +2,19 @@ package com.jsonify;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import com.jsonify.classes.Bar;
 import com.jsonify.classes.Foo;
+import com.jsonify.utils.ClassUtils;
 import com.jsonify.utils.JsonUtils;
 
 /**
@@ -239,9 +242,40 @@ public class AppTest
     }
 
     @Test
-    public void parseJsonString(){
+    public void lexJson(){
+
+        String json = "{\"name\":\"John\",\"age\":30,\"married\":false,\"height\":1.8,\"weight\":80.5,\"wife\":{\"Name\":\"Marge\",\"Age\":30,\"Married\":true,\"Height\":1.8}}";
+
+        System.out.println(json);
+
+        for(String token: Parser.lex(json)){
+            System.out.println(token.toString());
+        }
+
      
         
     }
     
+    @Test
+    public void trygetClassname(){
+        
+        Integer i = 0;
+
+        Class<?> clazz = i.getClass();
+
+        System.out.println(clazz.getName());
+
+    }
+
+    @Test
+    public void testDate(){
+        Date date = new Date(0);
+        Foo foo = new Foo();
+
+
+        assertFalse(ClassUtils.isRelation(date));
+        assertTrue(ClassUtils.isRelation(foo));
+
+    }
+
 }

@@ -8,9 +8,6 @@ public class JsonObjectBuilder {
 
     private HashMap<String, Object> map = new HashMap<String, Object>();
 
-    
-    
-
     public JsonObjectBuilder() {
         this.map = new HashMap<>();
     }
@@ -20,55 +17,65 @@ public class JsonObjectBuilder {
     }
 
     public JsonObjectBuilder(String jsonString) {
-        // 
+        
     }
 
-    public void add(String key, String value) {
+    public JsonObjectBuilder add(String key, String value) {
         this.map.put(key, value);
+        return this;
     }
 
-    public void add(String key, char value) {
+    public JsonObjectBuilder add(String key, char value) {
         Character c = Character.valueOf(value);
         this.map.put(key, c);
+        return this;
     }
 
-    public void add(String key, boolean value) {
+    public JsonObjectBuilder add(String key, boolean value) {
         Boolean b = Boolean.valueOf(value);
         this.map.put(key, b);
+        return this;
     }
 
     // numbers
-    public void add(String key, int value) {
+    public JsonObjectBuilder add(String key, int value) {
         Integer i = Integer.valueOf(value);
         this.map.put(key, i);
+        return this;
     }
 
-    public void add(String key, double value) {
+    public JsonObjectBuilder add(String key, double value) {
         Double d = Double.valueOf(value);
         this.map.put(key, d);
+        return this;
     }
 
-    public void add(String key, float value) {
+    public JsonObjectBuilder add(String key, float value) {
         Float f = Float.valueOf(value);
         this.map.put(key, f);
+        return this;
     }
 
-    public void add(String key, long value) {
+    public JsonObjectBuilder add(String key, long value) {
         Long l = Long.valueOf(value);
         this.map.put(key, l);
+        return this;
     }
 
-    public void add(String key, short value) {
+    public JsonObjectBuilder add(String key, short value) {
         Short s = Short.valueOf(value);
         this.map.put(key, s);
+        return this;
     }
 
-    public void add(String key, JsonArray value) {
+    public JsonObjectBuilder add(String key, JsonArray value) {
         this.map.put(key, value);
+        return this;
     }
 
-    public void add(String key, JsonObject value){
+    public JsonObjectBuilder add(String key, JsonObject value){
         this.map.put(key, value);
+        return this;
     }
 
     public void add(String key, Object object){
